@@ -1,44 +1,40 @@
 using System;
 
-namespace StackClass { // Espaço de nomes
+namespace StackClass {
     public class Stack {
         static readonly int MAX = 1000;
         int top = -1;
-        int[] stack = new int[MAX]; // operador de atribuição
-        
-        // verificar se a pilha está vazia ou não
-        bool IsEmpty() { // () = função/método / booleano = true or false
-            return(top < 0); // vai retornar booleano pois está na frente da função, função = IsEmpty
+        string[] stack = new string[MAX];
+
+        public bool IsEmpty() {
+            return (top < 0);
         }
 
-        public bool Push(int data) {
-            if(top >= MAX) {
+        public bool Push(string data) {
+            if (top >= MAX) {
                 Console.WriteLine("Stack Overflow");
                 return false;
             }
-            top += 1; // top = top +1 / top++ / ++top
+            top += 1;
             stack[top] = data;
             return true;
         }
 
-        public int Pop() {
-            if(top < 0) {
+        public string Pop() {
+            if (top < 0) {
                 Console.WriteLine("Stack Underflow");
-                return 0;
             }
-
-            int valor = stack[top]; // top-- (decrementar depois) / --top (decrementar antes)
-            top -= 1;
+            string valor = stack[top];
+            top--;
             return valor;
         }
 
         public void Peek() {
             if (top < 0) {
-                Console.WriteLine("Stack underflow");
+                Console.WriteLine("Stack Underflow");
                 return;
             }
-
-            Console.WriteLine($"O topo da pilha é: {stack[top]}"); // Está passando um método String para o writeline
+            Console.WriteLine($"O topo da pilha é: {stack[top]}");
         }
 
         public void PrintStack() {
@@ -47,9 +43,10 @@ namespace StackClass { // Espaço de nomes
                 return;
             }
 
-            Console.WriteLine("Itens da pilha: ");
-            for(int i = top; i >= 0; i--) {
-                string texto = $"Stack[{stack[i]}]";
+            Console.WriteLine("Itens da pilha:");
+
+            for (int i = top; i >= 0; i--) {
+                string texto = $"stack[{i}] = {stack[i]}";
                 Console.WriteLine(texto);
             }
         }

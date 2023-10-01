@@ -1,10 +1,10 @@
 ﻿using StackClass;
 
-Stack pilha = new Stack(); // Stack = método construtor (tem que ter o mesmo nome da classe)
+Stack pilha = new Stack();
 
-pilha.Push(10);
-pilha.Push(9);
-pilha.Push(100);
-pilha.Push(50);
+pilha.Push("a");
+pilha.Push("b");
+pilha.Push("c");
+pilha.Push("d");
 
 pilha.PrintStack();
